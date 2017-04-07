@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'TimerController@show')->name('show_timer');
+
+Route::get('/{time_unit}', 'TimerController@useUnit')->name('show_timer_with_other_unit');

@@ -1,0 +1,3 @@
+<div>
+    Noch {{ $value }} {{ $unit }}...
+</div>
