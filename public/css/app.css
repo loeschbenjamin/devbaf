@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+
+    -webkit-animation: rainbow 1s infinite;
+    -ms-animation: rainbow 1s infinite;
+    animation: rainbow 1s infinite;
+}
+
+h5 {
+    font-size: 1.5em;
+}
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.content .title {
+    width: 50%;
+    height: 50%;
+    min-width: 435px;
+    min-height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+.pre-text {
+    padding: 10px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-style: italic;
+    color: #666;
+}
+
+#waiting > div {
+    padding: 10px;
+    border-radius: 3px;
+    background: #444;
+    display: inline-block;
+
+    -webkit-animation: rainbow-bg 1s infinite;
+    -ms-animation: rainbow-bg 1s infinite;
+    animation: rainbow-bg 1s infinite;
+}
+
+#waiting div > span {
+    padding: 15px;
+    border-radius: 3px;
+    background: #ababab;
+    display: inline-block;
+}
+
+.clock__unit-label {
+    padding-top: 5px;
+    font-size: 16px;
+    color: #ededed;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow{
+    20%{color: red;}
+    40%{color: yellow;}
+    60%{color: green;}
+    80%{color: blue;}
+    100%{color: orange;}
+}
+/* Internet Explorer */
+@-ms-keyframes rainbow{
+    20%{color: red;}
+    40%{color: yellow;}
+    60%{color: green;}
+    80%{color: blue;}
+    100%{color: orange;}
+}
+/* Standar Syntax */
+@keyframes rainbow{
+    20%{color: red;}
+    40%{color: yellow;}
+    60%{color: green;}
+    80%{color: blue;}
+    100%{color: orange;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes rainbow-bg{
+    20%{background-color: red;}
+    40%{background-color: yellow;}
+    60%{background-color: green;}
+    80%{background-color: blue;}
+    100%{background-color: orange;}
+}
+/* Internet Explorer */
+@-ms-keyframes rainbow-bg{
+    20%{background-color: red;}
+    40%{background-color: yellow;}
+    60%{background-color: green;}
+    80%{background-color: blue;}
+    100%{background-color: orange;}
+}
+/* Standar Syntax */
+@keyframes rainbow-bg{
+    20%{background-color: red;}
+    40%{background-color: yellow;}
+    60%{background-color: green;}
+    80%{background-color: blue;}
+    100%{background-color: orange;}
+}
