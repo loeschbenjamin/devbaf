@@ -13,4 +13,4 @@
 
 Route::get('/', 'TimerController@show')->name('show_timer');
 
-Route::get('/{time_unit}', 'TimerController@useUnit')->name('show_timer_with_other_unit');
+Route::get('/Yeah-its-DEV-BaF', 'TimerController@setDevBaF')->name('it_is_dev_baf_time');

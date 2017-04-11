@@ -1,3 +1,4 @@
+<h2>DEV - BaF</h2>
 <div>
-    Na klar! zisch und hopp!
+    <img src="{{ $img_src }}" alt="Drinking some beer" />
 </div>

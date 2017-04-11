@@ -23,10 +23,6 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    <h5>Ist schon wieder Zeit für</h5>
-                    <h2>DEV - BaF</h2>
-                    <h5>?</h5>
-
                     @if($isDevBaF)
                         @include('devbaf')
                     @else
