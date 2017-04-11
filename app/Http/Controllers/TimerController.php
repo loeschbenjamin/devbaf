@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Storage;
 
 class TimerController extends Controller
 {
@@ -11,83 +11,38 @@ class TimerController extends Controller
     {
         $now = Carbon::now();
         $target_appointment = Carbon::parse('this friday 16:00');
+        $img_src = false;
 
         if( $target_appointment->lessThanOrEqualTo($now) ) {
             $isDevBaF = true;
+
+            $img_src = '/storage';
+            $files = Storage::disk('public')->allFiles('img');
+            $img_src .= '/' . $files[rand(1, ( count($files))) - 1];
         } else {
             $isDevBaF = false;
         }
 
-        $unit_hr = 'Tag';
-        $unit_js = 'countdown.DAYS';
-        $value = $now->diffInDays($target_appointment);
-
-        if ($value > 1) {
-            $unit_hr .= 'e';
-        }
-
         return view('welcome', [
-            'value' => $value,
-            'unit' => $unit_hr,
-            'unit_js' => $unit_js,
             'isDevBaF' => $isDevBaF,
-            'now' => $now->toDayDateTimeString(),
+            'img_src' => $img_src,
             'end' => $target_appointment
         ]);
     }
 
-    public function useUnit($unit = 'd')
+    public function setDevBaF()
     {
-        $now = Carbon::now();
-        $target_appointment = Carbon::parse('this friday 16:00');
-        $unit_js = 'countdown.';
+        $isDevBaF = true;
 
-        if( $target_appointment->lessThanOrEqualTo($now) ) {
-            $isDevBaF = true;
-        } else {
-            $isDevBaF = false;
-        }
+        $img_src = '/storage';
 
-        switch($unit)
-        {
-            case 'sec':
-                $unit_hr = 'Sekunde';
-                $unit_js .= 'SECONDS';
-                $value = $now->diffInSeconds($target_appointment);
-                break;
-            case 'min':
-                $unit_hr = 'Minute';
-                $unit_js .= 'MINUTES';
-                $value = $now->diffInMinutes($target_appointment);
-                break;
-            case 'h':
-                $unit_hr = 'Stunde';
-                $unit_js .= 'HOURS';
-                $value = $now->diffInHours($target_appointment);
-                break;
-            case 'd':
-            default:
-                $unit_hr = 'Tag';
-                $unit_js .= 'DAYS';
-                $value = $now->diffInDays($target_appointment);
-                break;
-        }
+        $files = Storage::disk('public')->allFiles('img');
 
-        if ($value > 1) {
-            if($unit == 'd') {
-                $unit_hr .= 'e';
-            } else {
-                $unit_hr .= 'n';
-            }
-        }
+        $img_src .= '/' . $files[rand(1, ( count($files))) - 1];
 
         return view('welcome', [
-            'value' => $value,
-            'unit' => $unit_hr,
-            'unit_js' => $unit_js,
             'isDevBaF' => $isDevBaF,
-            'now' => $now->toDayDateTimeString(),
-            'end' => $target_appointment
+            'img_src' => $img_src
         ]);
     }
 }
