@@ -47,9 +47,21 @@ function initializeClock(id, endtime)
 
 $(document).ready(function() {
     let $waiting = $('#waiting');
+    let $audio = $('[data-audio-loop="true"]');
 
     if( $waiting.length > 0 ) {
         let deadline = new Date(Date.parse($waiting.data('end')));
         initializeClock('waiting', deadline);initializeClock('waiting', deadline);
+    }
+
+console.log($audio);
+
+    if( $audio.length > 0 ) {
+        let myAudio = new Audio('/storage/audio/beer_background_music.mp3');
+        myAudio.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+        myAudio.play();
     }
 });
