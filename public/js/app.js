@@ -27,7 +27,7 @@ function initializeClock(id, endtime)
     {
         let t = getTimeRemaining(endtime);
 
-        if ( t < (5 * 60 * 1000) ){
+        if ( (t<(5*60*1000)) && ((t%(60*1000))===0) ){
             location.reload(true);
         }
 
