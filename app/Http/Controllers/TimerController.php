@@ -12,6 +12,7 @@ class TimerController extends Controller
     {
         $now = Carbon::now();
         $target_appointment = Carbon::parse('this friday 16:00');
+        $title = 'DEV - BaF';
 
         $holidays = [
             "2017-01-01", "2017-01-06",
@@ -24,7 +25,8 @@ class TimerController extends Controller
         ];
 
         if( in_array($target_appointment->format('Y-m-d'), $holidays) ) {
-            $target_appointment = $target_appointment->addWeek(1);
+            $target_appointment = $target_appointment->subDay(1);
+            $title = 'DEV - BaD';
         }
         $img_src = false;
 
@@ -39,6 +41,7 @@ class TimerController extends Controller
         }
 
         return view('welcome', [
+            'title' => $title,
             'isDevBaF' => $isDevBaF,
             'img_src' => $img_src,
             'end' => $target_appointment

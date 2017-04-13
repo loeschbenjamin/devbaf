@@ -1,5 +1,5 @@
 <h5>Ist schon wieder Zeit für</h5>
-<h2>DEV - BaF</h2>
+<h2>{{ $title }}</h2>
 <h5>?</h5>
 <div class="pre-text">
     Noch
