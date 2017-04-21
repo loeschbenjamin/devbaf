@@ -47,25 +47,27 @@ h5 {
 #waiting > div {
     padding: 10px;
     border-radius: 3px;
-    background: #444;
+    background: #fff;
     display: inline-block;
-
-    -webkit-animation: rainbow-bg 1s infinite;
-    -ms-animation: rainbow-bg 1s infinite;
-    animation: rainbow-bg 1s infinite;
 }
 
 #waiting div > span {
     padding: 15px;
     border-radius: 3px;
-    background: #ababab;
     display: inline-block;
+    font-weight: bold;
+    font-size: 64px;
+
+    -webkit-animation: blink-font 1s infinite;
+    -ms-animation: blink-font 1s infinite;
+    animation: blink-font 1s infinite;
 }
 
 .clock__unit-label {
     padding-top: 5px;
-    font-size: 16px;
-    color: #ededed;
+    font-size: 32px;
+    color: #000;
+    font-weight: bold;
 }
 
 /* Chrome, Safari, Opera */
@@ -117,3 +119,19 @@ h5 {
     80%{background-color: blue;}
     100%{background-color: orange;}
 }
+
+@-webkit-keyframes blink-font{
+    20%{color: red;}
+    100%{background-color: black;}
+}
+/* Internet Explorer */
+@-ms-keyframes blink-font{
+    20%{background-color: red;}
+    100%{background-color: black;}
+}
+/* Standar Syntax */
+@keyframes blink-font{
+    20%{background-color: red;}
+    100%{background-color: black;}
+}
+
