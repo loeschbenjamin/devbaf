@@ -122,16 +122,16 @@ h5 {
 
 @-webkit-keyframes blink-font{
     20%{color: red;}
-    100%{background-color: black;}
+    100%{color: black;}
 }
 /* Internet Explorer */
 @-ms-keyframes blink-font{
-    20%{background-color: red;}
-    100%{background-color: black;}
+    20%{color: red;}
+    100%{color: black;}
 }
 /* Standar Syntax */
 @keyframes blink-font{
-    20%{background-color: red;}
-    100%{background-color: black;}
+    20%{color: red;}
+    100%{color: black;}
 }
 
