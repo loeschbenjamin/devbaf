@@ -27,10 +27,6 @@ function initializeClock(id, endtime)
     {
         let t = getTimeRemaining(endtime);
 
-        if ( (t<(5*60*1000)) && ((t%(60*1000))===0) ){
-            location.reload(true);
-        }
-
         daysSpan.innerHTML = t.days;
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
@@ -38,6 +34,7 @@ function initializeClock(id, endtime)
 
         if( t.total <= 0 ) {
             clearInterval(timeInterval);
+            location.reload();
         }
     }
 

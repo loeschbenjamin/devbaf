@@ -14,3 +14,4 @@
 Route::get('/', 'TimerController@show')->name('show_timer');
 
 Route::get('/Yeah-its-DEV-BaF', 'TimerController@setDevBaF')->name('it_is_dev_baf_time');
+Route::get('/Yeah-its-DEV-BaD', 'TimerController@setDevBaD')->name('it_is_dev_bad_time');

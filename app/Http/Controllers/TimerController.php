@@ -11,7 +11,7 @@ class TimerController extends Controller
     public function show()
     {
         $now = Carbon::now();
-        $target_appointment = Carbon::parse('this friday 16:00');
+        $target_appointment = Carbon::parse('this friday 17:00');
         $title = 'DEV - BaF';
 
         $holidays = [
@@ -51,6 +51,7 @@ class TimerController extends Controller
     public function setDevBaF()
     {
         $isDevBaF = true;
+        $title = 'DEV - BaF';
 
         $img_src = '/storage';
 
@@ -59,7 +60,26 @@ class TimerController extends Controller
         $img_src .= '/' . $files[rand(1, ( count($files))) - 1];
 
         return view('welcome', [
+            'title' => $title,
             'isDevBaF' => $isDevBaF,
+            'img_src' => $img_src
+        ]);
+    }
+
+    public function setDevBaD()
+    {
+        $isDevBaD = true;
+        $title = 'DEV - BaD';
+
+        $img_src = '/storage';
+
+        $files = Storage::disk('public')->allFiles('img');
+
+        $img_src .= '/' . $files[rand(1, ( count($files))) - 1];
+
+        return view('welcome', [
+            'title' => $title,
+            'isDevBaF' => $isDevBaD,
             'img_src' => $img_src
         ]);
     }
